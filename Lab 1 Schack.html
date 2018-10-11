@@ -1,0 +1,49 @@
+<html>
+<script>
+
+// board consists of files & ranks.
+//put board in an array
+//use for loops
+//start position
+//output possible stop position
+
+
+function chessBoard() {
+// chessBoard properties
+        this.boardColumns = new Array(8);
+// chess board square creation and looping variables
+        var colNum = "A";
+        var rowNum = 1;
+
+        //board loop
+        for (i = 0; i < boardColumns.length; i++) {
+
+        // column array
+        var columns = new Array(8);
+          boardColumns[i] = columns;
+
+        //column loop
+        for (j = 0; j < boardColumns[i].length; j++) {
+
+      // oard square creation
+        var name = colNum + rowNum.toString();
+        var square = board[i][j];
+
+
+    // row number increment
+          rowNum++;
+  } // end column loop
+
+    // column letter increment
+
+  String.fromCharCode(colNum.charCodeAt() + 1);
+
+        } // end board loop
+
+    } // end chess board constructor
+chessBoard();
+console.log(square);
+
+
+</script>
+</html>
