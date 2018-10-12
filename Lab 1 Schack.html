@@ -1,54 +1,54 @@
 <html>
 <script>
+   var x = [1,2,3,4,5,6,7,8];
+   var y = [1,2,3,4,5,6,7,8];
+   var rows = [];
+   var columns = [];
 
-// board consists of files & ranks.
-//put board in an array
-//use for loops
-//start position
-//output possible stop position
+   function moveX(x) {
+       var possMovX = [2,1,-1,-2,-2,-1,1,2];
+       for (let i = 0; i < 8; i++){
+             rows.push(x + possMovX[i]);
+           }
+   return rows;
+   }
 
-function createBoard() {
-var rows = [1,2,3,4,5,6,7,8];
-var columns = [1,2,3,4,5,6,7,8];
-var board = [];
+   function moveY(y) {
+       var possMovY = [1,2,2,1,-1,-2,-2,-1];
+       for (let i = 0; i < 8; i++){
+              columns.push(y + possMovY[i]);
+          }
+   return columns;
+   }
 
-for(let r = 0; r < 8; r++) {
- for(let c = 0; c < 8; c++) {
-   let square = {
-     rows: rows[r],
-     columns: columns[c],
-  };
-   board.push(square);
- }
-}
-return board;
-}
-console.log(createBoard());
-
-possibleMoves(4,4);
-
-function possibleMoves(p,q) {
-var possMovesR = [2, 1, -1, -2, -2, -1, 1, 2];
-var possMovesC = [1, 2, 2, 1, -1, -2, -2, -1];
-
-// Check if each possible move is valid or not
-for (let i = 0; i < 8; i++) {
-
-// Position of knight after move
-    var x = p + possMovesR[i];
-    var y = q + possMovesC[i];
-
-    var sum = x,y;
-    return sum;
-
-  }
-  console.log(sum);
-};
+  console.log(moveX(2));
+  console.log(moveY(7));
 
 
+   rows.forEach(function(item, i) { if (item == 1) rows[i] = 'a'; });
+   rows.forEach(function(item, i) { if (item == 2) rows[i] = 'b'; });
+   rows.forEach(function(item, i) { if (item == 3) rows[i] = 'c'; });
+   rows.forEach(function(item, i) { if (item == 4) rows[i] = 'd'; });
+   rows.forEach(function(item, i) { if (item == 5) rows[i] = 'e'; });
+   rows.forEach(function(item, i) { if (item == 6) rows[i] = 'f'; });
+   rows.forEach(function(item, i) { if (item == 7) rows[i] = 'g'; });
+   rows.forEach(function(item, i) { if (item == 8) rows[i] = 'h'; });
 
-//console.log(String.fromCharCode(1));
 
+   rows.forEach(function(item, i) { if (item <= 0 || item > 8) rows[i] = 'undefined'; });
+   columns.forEach(function(item, i) { if (item <= 0 || item > 8) columns[i] = 'undefined'; });
 
+   var chessBoard = [];
+
+   function chess2() {
+   for (let i = 0; i < x.length; i++) {
+       rows[i] + columns[i]
+       chessBoard.push(rows[i] + columns[i]);
+     }
+
+   return chessBoard;
+
+   }
+   console.log(chess2());
 </script>
 </html>
