@@ -9,7 +9,7 @@
 
 function createBoard() {
 var rows = [1,2,3,4,5,6,7,8];
-var columns = ["A","B","C","D","E","F","G","H"];
+var columns = [1,2,3,4,5,6,7,8];
 var board = [];
 
 for(let r = 0; r < 8; r++) {
@@ -17,14 +17,38 @@ for(let r = 0; r < 8; r++) {
    let square = {
      rows: rows[r],
      columns: columns[c],
-     //value: r
-   };
+  };
    board.push(square);
  }
 }
 return board;
 }
 console.log(createBoard());
+
+possibleMoves(4,4);
+
+function possibleMoves(p,q) {
+var possMovesR = [2, 1, -1, -2, -2, -1, 1, 2];
+var possMovesC = [1, 2, 2, 1, -1, -2, -2, -1];
+
+// Check if each possible move is valid or not
+for (let i = 0; i < 8; i++) {
+
+// Position of knight after move
+    var x = p + possMovesR[i];
+    var y = q + possMovesC[i];
+
+    var sum = x,y;
+    return sum;
+
+  }
+  console.log(sum);
+};
+
+
+
+//console.log(String.fromCharCode(1));
+
 
 </script>
 </html>
