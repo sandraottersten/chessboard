@@ -4,7 +4,9 @@
    var y = [1,2,3,4,5,6,7,8];
    var rows = [];
    var columns = [];
+   var positions = [];
 
+// Möjliga flytt på x-axel
    function moveX(x) {
        var possMovX = [2,1,-1,-2,-2,-1,1,2];
        for (let i = 0; i < 8; i++){
@@ -13,6 +15,7 @@
    return rows;
    }
 
+// Möjliga flytt på y-axel
    function moveY(y) {
        var possMovY = [1,2,2,1,-1,-2,-2,-1];
        for (let i = 0; i < 8; i++){
@@ -22,33 +25,46 @@
    }
 
   console.log(moveX(2));
-  console.log(moveY(7));
+  console.log(moveY(2));
 
 
-   rows.forEach(function(item, i) { if (item == 1) rows[i] = 'a'; });
-   rows.forEach(function(item, i) { if (item == 2) rows[i] = 'b'; });
-   rows.forEach(function(item, i) { if (item == 3) rows[i] = 'c'; });
-   rows.forEach(function(item, i) { if (item == 4) rows[i] = 'd'; });
-   rows.forEach(function(item, i) { if (item == 5) rows[i] = 'e'; });
-   rows.forEach(function(item, i) { if (item == 6) rows[i] = 'f'; });
-   rows.forEach(function(item, i) { if (item == 7) rows[i] = 'g'; });
-   rows.forEach(function(item, i) { if (item == 8) rows[i] = 'h'; });
+  letters();
+
+  function letters(moveX, moveY) {
+    for (let i = 0; i < 8; i++){
+   if (rows[i] === 1 && columns[i] > 0 && columns[i] < 9) {
+       positions.push('A' + columns[i]);
+   } else if (rows[i] === 2 && columns[i] > 0 && columns[i] < 9) {
+        positions.push('B' + columns[i]);
+   } else if (rows[i] === 3 && columns[i] > 0 && columns[i] < 9) {
+       positions.push('C' + columns[i]);
+   } else if (rows[i] === 4 && columns[i] > 0 && columns[i] < 9) {
+       positions.push('D' + columns[i]);
+   } else if (rows[i] === 5 && columns[i] > 0 && columns[i] < 9) {
+      positions.push('E' + columns[i]);
+   } else if (rows[i] === 6 && columns[i] > 0 && columns[i] < 9) {
+      positions.push('F' + columns[i]);
+   } else if (rows[i] === 7 && columns[i] > 0 && columns[i] < 9) {
+      positions.push('G' + columns[i]);
+   } else if (rows[i] === 8 && columns[i] > 0 && columns[i] < 9) {
+      positions.push('H' + columns[i]);
+   }
+  }
+  return positions
+}
 
 
-   rows.forEach(function(item, i) { if (item <= 0 || item > 8) rows[i] = 'undefined'; });
-   columns.forEach(function(item, i) { if (item <= 0 || item > 8) columns[i] = 'undefined'; });
-
+/*
    var chessBoard = [];
 
    function chess2() {
    for (let i = 0; i < x.length; i++) {
-       rows[i] + columns[i]
-       chessBoard.push(rows[i] + columns[i]);
+       chessBoard.push(letters(moveX, moveY));
      }
 
    return chessBoard;
 
-   }
-   console.log(chess2());
+   }*/
+   console.log(positions);
 </script>
 </html>
