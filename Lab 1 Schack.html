@@ -5,10 +5,9 @@
    var columns = [];
    var positions = [];
 
-// Function call
-possiblePositions("H1")
+possiblePositions("H1")                         //Function call. Add current position as argument.
 
-   function possiblePositions(current) {        //function with current position as argument
+   function possiblePositions(current) {        //Function with current position as a parameter
      var x = current.charCodeAt(0) - 64;        //Extract the letter from argument and make it to a number 1-8
      var y = Number.parseInt(current[1]);       //Extract the number from argument and make it to an integer
      var possMovX = [2,1,-1,-2,-2,-1,1,2];      //Possible moves along the x-line
