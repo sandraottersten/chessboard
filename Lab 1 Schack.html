@@ -1,70 +1,42 @@
 <html>
 <script>
-   var x = [1,2,3,4,5,6,7,8];
-   var y = [1,2,3,4,5,6,7,8];
+
    var rows = [];
    var columns = [];
    var positions = [];
 
-// Möjliga flytt på x-axel
-   function moveX(x) {
-       var possMovX = [2,1,-1,-2,-2,-1,1,2];
-       for (let i = 0; i < 8; i++){
-             rows.push(x + possMovX[i]);
-           }
-   return rows;
-   }
+possiblePositions("A2")
 
-// Möjliga flytt på y-axel
-   function moveY(y) {
+// Möjliga flytt på x-axel
+   function possiblePositions(current) {
+     var a = current.charCodeAt(0) - 64;
+     var b = Number.parseInt(current[1]);
+       var possMovX = [2,1,-1,-2,-2,-1,1,2];
        var possMovY = [1,2,2,1,-1,-2,-2,-1];
        for (let i = 0; i < 8; i++){
-              columns.push(y + possMovY[i]);
-          }
-   return columns;
+             rows.push(a + possMovX[i]);
+             columns.push(b + possMovY[i]);
+             if (rows[i] === 1 && columns[i] > 0 && columns[i] < 9) {
+                 positions.push('A' + columns[i]);
+             } else if (rows[i] === 2 && columns[i] > 0 && columns[i] < 9) {
+                  positions.push('B' + columns[i]);
+             } else if (rows[i] === 3 && columns[i] > 0 && columns[i] < 9) {
+                 positions.push('C' + columns[i]);
+             } else if (rows[i] === 4 && columns[i] > 0 && columns[i] < 9) {
+                 positions.push('D' + columns[i]);
+             } else if (rows[i] === 5 && columns[i] > 0 && columns[i] < 9) {
+                positions.push('E' + columns[i]);
+             } else if (rows[i] === 6 && columns[i] > 0 && columns[i] < 9) {
+                positions.push('F' + columns[i]);
+             } else if (rows[i] === 7 && columns[i] > 0 && columns[i] < 9) {
+                positions.push('G' + columns[i]);
+             } else if (rows[i] === 8 && columns[i] > 0 && columns[i] < 9) {
+                positions.push('H' + columns[i]);
+             }
+           }
+   return console.log(positions);
    }
 
-  console.log(moveX(2));
-  console.log(moveY(2));
 
-
-  letters();
-
-  function letters(moveX, moveY) {
-    for (let i = 0; i < 8; i++){
-   if (rows[i] === 1 && columns[i] > 0 && columns[i] < 9) {
-       positions.push('A' + columns[i]);
-   } else if (rows[i] === 2 && columns[i] > 0 && columns[i] < 9) {
-        positions.push('B' + columns[i]);
-   } else if (rows[i] === 3 && columns[i] > 0 && columns[i] < 9) {
-       positions.push('C' + columns[i]);
-   } else if (rows[i] === 4 && columns[i] > 0 && columns[i] < 9) {
-       positions.push('D' + columns[i]);
-   } else if (rows[i] === 5 && columns[i] > 0 && columns[i] < 9) {
-      positions.push('E' + columns[i]);
-   } else if (rows[i] === 6 && columns[i] > 0 && columns[i] < 9) {
-      positions.push('F' + columns[i]);
-   } else if (rows[i] === 7 && columns[i] > 0 && columns[i] < 9) {
-      positions.push('G' + columns[i]);
-   } else if (rows[i] === 8 && columns[i] > 0 && columns[i] < 9) {
-      positions.push('H' + columns[i]);
-   }
-  }
-  return positions
-}
-
-
-/*
-   var chessBoard = [];
-
-   function chess2() {
-   for (let i = 0; i < x.length; i++) {
-       chessBoard.push(letters(moveX, moveY));
-     }
-
-   return chessBoard;
-
-   }*/
-   console.log(positions);
 </script>
 </html>
